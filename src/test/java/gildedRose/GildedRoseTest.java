@@ -20,7 +20,7 @@ public class GildedRoseTest {
         GildedRose gildedRose = getGildedRose( new Item(ITEM_A,10,50));
         gildedRose.updateQuality();
 
-        Assert.assertEquals(49,gildedRose.getItem(0).quality);
+        Assert.assertEquals(49,gildedRose.quality);
     }
 
     @Test
@@ -28,7 +28,7 @@ public class GildedRoseTest {
         GildedRose gildedRose = getGildedRose( new Item(AGED_BRIE,10,50));
         gildedRose.updateQuality();
 
-        Assert.assertEquals(50,gildedRose.getItem(0).quality);
+        Assert.assertEquals(50,gildedRose.quality);
     }
 
     @Test
@@ -36,7 +36,7 @@ public class GildedRoseTest {
         GildedRose gildedRose = getGildedRose( new Item(AGED_BRIE,10,49));
         gildedRose.updateQuality();
 
-        Assert.assertEquals(50,gildedRose.getItem(0).quality);
+        Assert.assertEquals(50,gildedRose.quality);
     }
 
     @Test
@@ -44,7 +44,7 @@ public class GildedRoseTest {
         GildedRose gildedRose = getGildedRose( new Item(BPTATC,10,49));
         gildedRose.updateQuality();
 
-        Assert.assertEquals(50,gildedRose.getItem(0).quality);
+        Assert.assertEquals(50,gildedRose.quality);
     }
 
     @Test
@@ -52,7 +52,7 @@ public class GildedRoseTest {
         GildedRose gildedRose = getGildedRose( new Item(BPTATC,10,48));
         gildedRose.updateQuality();
 
-        Assert.assertEquals(50,gildedRose.getItem(0).quality);
+        Assert.assertEquals(50,gildedRose.quality);
     }
 
     @Test
@@ -60,7 +60,7 @@ public class GildedRoseTest {
         GildedRose gildedRose = getGildedRose( new Item(BPTATC,5,49));
         gildedRose.updateQuality();
 
-        Assert.assertEquals(50,gildedRose.getItem(0).quality);
+        Assert.assertEquals(50,gildedRose.quality);
     }
 
     @Test
@@ -68,7 +68,7 @@ public class GildedRoseTest {
         GildedRose gildedRose = getGildedRose( new Item(BPTATC,5,47));
         gildedRose.updateQuality();
 
-        Assert.assertEquals(50,gildedRose.getItem(0).quality);
+        Assert.assertEquals(50,gildedRose.quality);
     }
 
     @Test
@@ -76,7 +76,7 @@ public class GildedRoseTest {
         GildedRose gildedRose = getGildedRose( new Item(BPTATC,-1,47));
         gildedRose.updateQuality();
 
-        Assert.assertEquals(0,gildedRose.getItem(0).quality);
+        Assert.assertEquals(0,gildedRose.quality);
     }
 
     @Test
@@ -84,7 +84,7 @@ public class GildedRoseTest {
         GildedRose gildedRose = getGildedRose( new Item(ITEM_A,-1,47));
         gildedRose.updateQuality();
 
-        Assert.assertEquals(45,gildedRose.getItem(0).quality);
+        Assert.assertEquals(45,gildedRose.quality);
     }
 
     @Test
@@ -92,7 +92,7 @@ public class GildedRoseTest {
         GildedRose gildedRose = getGildedRose( new Item(SHOR,-1,47));
         gildedRose.updateQuality();
 
-        Assert.assertEquals(47,gildedRose.getItem(0).quality);
+        Assert.assertEquals(47,gildedRose.quality);
     }
 
     @Test
@@ -100,8 +100,8 @@ public class GildedRoseTest {
         GildedRose gildedRose = getGildedRose( new Item(AGED_BRIE,-1,47));
         gildedRose.updateQuality();
 
-        Assert.assertEquals(49,gildedRose.getItem(0).quality);
-        Assert.assertEquals(-2,gildedRose.getItem(0).sellIn);
+        Assert.assertEquals(49,gildedRose.quality);
+        Assert.assertEquals(-2,gildedRose.sellIn);
     }
 
     private List<Item> addItem(Item item,List<Item> items){
