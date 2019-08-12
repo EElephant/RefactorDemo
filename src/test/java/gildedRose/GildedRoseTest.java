@@ -86,7 +86,14 @@ public class GildedRoseTest {
 
         Assert.assertEquals(45,gildedRose.getItem(0).quality);
     }
-    
+
+    @Test
+    public void should_return_50_given_item_name_is_Sulfuras_Hand_of_Ragnaros_and_item_quality_is_47_and_item_sellIn_less_than_0_when_call_updateQuality(){
+        GildedRose gildedRose = getGildedRose( new Item(SHOR,-1,47));
+        gildedRose.updateQuality();
+
+        Assert.assertEquals(47,gildedRose.getItem(0).quality);
+    }
 
     private List<Item> addItem(Item item,List<Item> items){
         items.add(item);
