@@ -29,15 +29,11 @@ public class GildedRose {
 
                     if (name.equals("Backstage passes to a TAFKAL80ETC concert")) {
                         if (sellIn < 11) {
-                            if (quality < 50) {
-                                quality ++;
-                            }
+                            addQualityWhenQualityLessThan50();
                         }
 
                         if (sellIn < 6) {
-                            if (quality < 50) {
-                                quality ++;
-                            }
+                            addQualityWhenQualityLessThan50();
                         }
                     }
                 }
@@ -59,12 +55,15 @@ public class GildedRose {
                         quality = 0;
                     }
                 } else {
-                    if (quality < 50) {
-                        quality ++;
-                    }
+                    addQualityWhenQualityLessThan50();
                 }
             }
         }
+    }
+
+    private void addQualityWhenQualityLessThan50() {
+        if (quality < 50)
+            quality++;
     }
 
     private void initParams(int i) {
