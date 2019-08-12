@@ -46,6 +46,14 @@ public class GildedRoseTest {
         Assert.assertEquals(50,gildedRose.getItem(0).quality);
     }
 
+    @Test
+    public void should_return_50_given_item_name_is_Aged_Brie_and_item_quality_is_48_and_item_sellIn_is_10_when_call_updateQuality(){
+        GildedRose gildedRose = getGildedRose( new Item(BPTATC,10,48));
+        gildedRose.updateQuality();
+
+        Assert.assertEquals(50,gildedRose.getItem(0).quality);
+    }
+
 
 
 
