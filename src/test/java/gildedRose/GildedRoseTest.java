@@ -12,6 +12,7 @@ public class GildedRoseTest {
     private static String AGED_BRIE = "Aged Brie";
     private static String ITEM_A = "Item A";
     private static String BPTATC = "Backstage passes to a TAFKAL80ETC concert";
+    private static String SHOR = "Sulfuras, Hand of Ragnaros";
 
 
     @Test
@@ -78,6 +79,14 @@ public class GildedRoseTest {
         Assert.assertEquals(0,gildedRose.getItem(0).quality);
     }
 
+    @Test
+    public void should_return_50_given_item_name_is_Item_A_and_item_quality_is_47_and_item_sellIn_less_than_0_when_call_updateQuality(){
+        GildedRose gildedRose = getGildedRose( new Item(ITEM_A,-1,47));
+        gildedRose.updateQuality();
+
+        Assert.assertEquals(45,gildedRose.getItem(0).quality);
+    }
+    
 
     private List<Item> addItem(Item item,List<Item> items){
         items.add(item);
