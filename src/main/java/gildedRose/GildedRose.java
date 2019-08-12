@@ -19,23 +19,23 @@ public class GildedRose {
                     && !items.get(i).name.equals("Backstage passes to a TAFKAL80ETC concert")) {
                 if (items.get(i).quality > 0) {
                     if (!items.get(i).name.equals("Sulfuras, Hand of Ragnaros")) {
-                        items.get(i).quality = items.get(i).quality - 1;
+                        items.get(i).quality --;
                     }
                 }
             } else {
                 if (items.get(i).quality < 50) {
-                    items.get(i).quality = items.get(i).quality + 1;
+                    items.get(i).quality ++;
 
                     if (items.get(i).name.equals("Backstage passes to a TAFKAL80ETC concert")) {
                         if (items.get(i).sellIn < 11) {
                             if (items.get(i).quality < 50) {
-                                items.get(i).quality = items.get(i).quality + 1;
+                                items.get(i).quality ++;
                             }
                         }
 
                         if (items.get(i).sellIn < 6) {
                             if (items.get(i).quality < 50) {
-                                items.get(i).quality = items.get(i).quality + 1;
+                                items.get(i).quality ++;
                             }
                         }
                     }
@@ -43,7 +43,7 @@ public class GildedRose {
             }
 
             if (!items.get(i).name.equals("Sulfuras, Hand of Ragnaros")) {
-                items.get(i).sellIn = items.get(i).sellIn - 1;
+                items.get(i).sellIn --;
             }
 
             if (items.get(i).sellIn < 0) {
@@ -51,15 +51,15 @@ public class GildedRose {
                     if (!items.get(i).name.equals("Backstage passes to a TAFKAL80ETC concert")) {
                         if (items.get(i).quality > 0) {
                             if (!items.get(i).name.equals("Sulfuras, Hand of Ragnaros")) {
-                                items.get(i).quality = items.get(i).quality - 1;
+                                items.get(i).quality --;
                             }
                         }
                     } else {
-                        items.get(i).quality = items.get(i).quality - items.get(i).quality;
+                        items.get(i).quality = 0;
                     }
                 } else {
                     if (items.get(i).quality < 50) {
-                        items.get(i).quality = items.get(i).quality + 1;
+                        items.get(i).quality ++;
                     }
                 }
             }

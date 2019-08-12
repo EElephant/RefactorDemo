@@ -72,7 +72,7 @@ public class GildedRoseTest {
     }
 
     @Test
-    public void should_return_50_given_item_name_is_Backstage_passes_to_a_TAFKAL80ETC_concert_and_item_quality_is_47_and_item_sellIn_less_than_0_when_call_updateQuality(){
+    public void should_return_0_given_item_name_is_Backstage_passes_to_a_TAFKAL80ETC_concert_and_item_quality_is_47_and_item_sellIn_less_than_0_when_call_updateQuality(){
         GildedRose gildedRose = getGildedRose( new Item(BPTATC,-1,47));
         gildedRose.updateQuality();
 
@@ -80,7 +80,7 @@ public class GildedRoseTest {
     }
 
     @Test
-    public void should_return_50_given_item_name_is_Item_A_and_item_quality_is_47_and_item_sellIn_less_than_0_when_call_updateQuality(){
+    public void should_return_45_given_item_name_is_Item_A_and_item_quality_is_47_and_item_sellIn_less_than_0_when_call_updateQuality(){
         GildedRose gildedRose = getGildedRose( new Item(ITEM_A,-1,47));
         gildedRose.updateQuality();
 
@@ -88,7 +88,7 @@ public class GildedRoseTest {
     }
 
     @Test
-    public void should_return_50_given_item_name_is_Sulfuras_Hand_of_Ragnaros_and_item_quality_is_47_and_item_sellIn_less_than_0_when_call_updateQuality(){
+    public void should_return_47_given_item_name_is_Sulfuras_Hand_of_Ragnaros_and_item_quality_is_47_and_item_sellIn_less_than_0_when_call_updateQuality(){
         GildedRose gildedRose = getGildedRose( new Item(SHOR,-1,47));
         gildedRose.updateQuality();
 
@@ -96,7 +96,7 @@ public class GildedRoseTest {
     }
 
     @Test
-    public void should_return_50_given_item_name_is_Aged_Brie_and_item_quality_is_47_and_item_sellIn_less_than_0_when_call_updateQuality(){
+    public void should_return_49_given_item_name_is_Aged_Brie_and_item_quality_is_47_and_item_sellIn_less_than_0_when_call_updateQuality(){
         GildedRose gildedRose = getGildedRose( new Item(AGED_BRIE,-1,47));
         gildedRose.updateQuality();
 
