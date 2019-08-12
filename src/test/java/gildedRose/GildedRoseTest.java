@@ -39,7 +39,7 @@ public class GildedRoseTest {
     }
 
     @Test
-    public void should_return_50_given_item_name_is_Aged_Brie_and_item_quality_is_49_and_item_sellIn_is_10_when_call_updateQuality(){
+    public void should_return_50_given_item_name_is_Backstage_passes_to_a_TAFKAL80ETC_concert_and_item_quality_is_49_and_item_sellIn_is_10_when_call_updateQuality(){
         GildedRose gildedRose = getGildedRose( new Item(BPTATC,10,49));
         gildedRose.updateQuality();
 
@@ -47,7 +47,7 @@ public class GildedRoseTest {
     }
 
     @Test
-    public void should_return_50_given_item_name_is_Aged_Brie_and_item_quality_is_48_and_item_sellIn_is_10_when_call_updateQuality(){
+    public void should_return_50_given_item_name_is_Backstage_passes_to_a_TAFKAL80ETC_concert_and_item_quality_is_48_and_item_sellIn_is_10_when_call_updateQuality(){
         GildedRose gildedRose = getGildedRose( new Item(BPTATC,10,48));
         gildedRose.updateQuality();
 
@@ -55,7 +55,7 @@ public class GildedRoseTest {
     }
 
     @Test
-    public void should_return_50_given_item_name_is_Aged_Brie_and_item_quality_is_49_and_item_sellIn_is_5_when_call_updateQuality(){
+    public void should_return_50_given_item_name_is_Backstage_passes_to_a_TAFKAL80ETC_concert_and_item_quality_is_49_and_item_sellIn_is_5_when_call_updateQuality(){
         GildedRose gildedRose = getGildedRose( new Item(BPTATC,5,49));
         gildedRose.updateQuality();
 
@@ -63,13 +63,20 @@ public class GildedRoseTest {
     }
 
     @Test
-    public void should_return_50_given_item_name_is_Aged_Brie_and_item_quality_is_47_and_item_sellIn_is_5_when_call_updateQuality(){
+    public void should_return_50_given_item_name_is_Backstage_passes_to_a_TAFKAL80ETC_concert_and_item_quality_is_47_and_item_sellIn_is_5_when_call_updateQuality(){
         GildedRose gildedRose = getGildedRose( new Item(BPTATC,5,47));
         gildedRose.updateQuality();
 
         Assert.assertEquals(50,gildedRose.getItem(0).quality);
     }
 
+    @Test
+    public void should_return_50_given_item_name_is_Backstage_passes_to_a_TAFKAL80ETC_concert_and_item_quality_is_47_and_item_sellIn_less_than_0_when_call_updateQuality(){
+        GildedRose gildedRose = getGildedRose( new Item(BPTATC,-1,47));
+        gildedRose.updateQuality();
+
+        Assert.assertEquals(0,gildedRose.getItem(0).quality);
+    }
 
 
     private List<Item> addItem(Item item,List<Item> items){
