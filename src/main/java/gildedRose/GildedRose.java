@@ -9,8 +9,6 @@ public class GildedRose {
         this.items = items;
     }
 
-//    public GildedRose(){}
-
     public Item getItem(int index){
         return this.items.get(index);
     }

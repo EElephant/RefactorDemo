@@ -95,6 +95,15 @@ public class GildedRoseTest {
         Assert.assertEquals(47,gildedRose.getItem(0).quality);
     }
 
+    @Test
+    public void should_return_50_given_item_name_is_Aged_Brie_and_item_quality_is_47_and_item_sellIn_less_than_0_when_call_updateQuality(){
+        GildedRose gildedRose = getGildedRose( new Item(AGED_BRIE,-1,47));
+        gildedRose.updateQuality();
+
+        Assert.assertEquals(49,gildedRose.getItem(0).quality);
+        Assert.assertEquals(-2,gildedRose.getItem(0).sellIn);
+    }
+
     private List<Item> addItem(Item item,List<Item> items){
         items.add(item);
         return items;
