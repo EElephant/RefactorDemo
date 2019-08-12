@@ -19,9 +19,7 @@ public class GildedRose {
             if (!name.equals("Aged Brie")
                     && !name.equals("Backstage passes to a TAFKAL80ETC concert")) {
                 if (quality > 0) {
-                    if (!name.equals("Sulfuras, Hand of Ragnaros")) {
-                        quality --;
-                    }
+                    reduceQualityWhenNameEqualsSulfuras();
                 }
             } else {
                 if (quality < 50) {
@@ -47,9 +45,7 @@ public class GildedRose {
                 if (!name.equals("Aged Brie")) {
                     if (!name.equals("Backstage passes to a TAFKAL80ETC concert")) {
                         if (quality > 0) {
-                            if (!name.equals("Sulfuras, Hand of Ragnaros")) {
-                                quality --;
-                            }
+                            reduceQualityWhenNameEqualsSulfuras();
                         }
                     } else {
                         quality = 0;
@@ -58,6 +54,12 @@ public class GildedRose {
                     addQualityWhenQualityLessThan50();
                 }
             }
+        }
+    }
+
+    private void reduceQualityWhenNameEqualsSulfuras() {
+        if (!name.equals("Sulfuras, Hand of Ragnaros")) {
+            quality--;
         }
     }
 
