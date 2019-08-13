@@ -26,32 +26,23 @@ public class GildedRose {
 
             switch(name){
                 case AGED_BRIE:
-//                    if (quality < 50) {
-//                        quality ++;
-//                    }
-//                    sellIn --;
-//                    if (sellIn < 0) {
-//                        modifyQualityByItemName();
-//                    }
                     itemStrategy = new AgedBrie();
                     itemStrategy.update(items.get(i));
                     deassignParams(items.get(i));
                     break;
+
                 case BPTATC:
-                    if (quality < 50) {
-                        quality++;
-                        addQualityBySellIn();
-                    }
-                    sellIn --;
-                    if (sellIn < 0) {
-                        modifyQualityByItemName();
-                    }
+                    itemStrategy = new Backstage();
+                    itemStrategy.update(items.get(i));
+                    deassignParams(items.get(i));
                     break;
+
                 case SHOR:
                     if (sellIn < 0) {
                         modifyQualityByItemName();
                     }
                     break;
+                    
                 default:
                     if (quality > 0) {
                         reduceQualityWhenNameNotEqualsSulfuras();
