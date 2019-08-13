@@ -5,6 +5,8 @@ import java.util.List;
 public class GildedRose {
 
     private final static String AGED_BRIE = "Aged Brie";
+    private final static String BPTATC = "Backstage passes to a TAFKAL80ETC concert";
+    private final static String SHOR = "Sulfuras, Hand of Ragnaros";
 
     protected List<Item> items;
     protected String name;
@@ -21,38 +23,78 @@ public class GildedRose {
 
             initParams(i);
 
-            if (!name.equals("Aged Brie")
-                    && !name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-                if (quality > 0) {
-                    reduceQualityWhenNameEqualsSulfuras();
-                }
-            } else {
-                if (quality < 50) {
-                    quality ++;
-
-                    if (name.equals("Backstage passes to a TAFKAL80ETC concert")) {
+            switch(name){
+                case AGED_BRIE:
+                    if (quality < 50) {
+                        quality ++;
+                    }
+                    sellIn --;
+                    if (sellIn < 0) {
+                        modifyQualityByItemName();
+                    }
+                    break;
+                case BPTATC:
+                    if (quality < 50) {
+                        quality++;
                         addQualityBySellIn();
                     }
-                }
-            }
-
-            if (!name.equals("Sulfuras, Hand of Ragnaros")) {
-                sellIn --;
-            }
-
-            if (sellIn < 0) {
-                if (!name.equals("Aged Brie")) {
-                    if (!name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-                        if (quality > 0) {
-                            reduceQualityWhenNameEqualsSulfuras();
-                        }
-                    } else {
-                        quality = 0;
+                    sellIn --;
+                    if (sellIn < 0) {
+                        modifyQualityByItemName();
                     }
-                } else {
-                    addQualityWhenQualityLessThan50();
-                }
+                    break;
+                case SHOR:
+                    if (sellIn < 0) {
+                        modifyQualityByItemName();
+                    }
+                    break;
+                default:
+                    if (quality > 0) {
+                        reduceQualityWhenNameNotEqualsSulfuras();
+                    }
+                    sellIn --;
+                    if (sellIn < 0) {
+                        modifyQualityByItemName();
+                    }
+                    break;
             }
+
+//            if (!name.equals("Aged Brie")
+//                    && !name.equals("Backstage passes to a TAFKAL80ETC concert")) {
+//                if (quality > 0) {
+//                    reduceQualityWhenNameNotEqualsSulfuras();
+//                }
+//            } else {
+//                if (quality < 50) {
+//                    quality ++;
+//
+//                    if (name.equals("Backstage passes to a TAFKAL80ETC concert")) {
+//                        addQualityBySellIn();
+//                    }
+//                }
+//            }
+//
+//            if (!name.equals("Sulfuras, Hand of Ragnaros")) {
+//                sellIn --;
+//            }
+//
+//            if (sellIn < 0) {
+//                modifyQualityByItemName();
+//            }
+        }
+    }
+
+    private void modifyQualityByItemName() {
+        if (!name.equals("Aged Brie")) {
+            if (!name.equals("Backstage passes to a TAFKAL80ETC concert")) {
+                if (quality > 0) {
+                    reduceQualityWhenNameNotEqualsSulfuras();
+                }
+            } else {
+                quality = 0;
+            }
+        } else {
+            addQualityWhenQualityLessThan50();
         }
     }
 
@@ -66,7 +108,7 @@ public class GildedRose {
         }
     }
 
-    private void reduceQualityWhenNameEqualsSulfuras() {
+    private void reduceQualityWhenNameNotEqualsSulfuras() {
         if (!name.equals("Sulfuras, Hand of Ragnaros")) {
             quality--;
         }
