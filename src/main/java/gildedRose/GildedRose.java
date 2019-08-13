@@ -22,16 +22,20 @@ public class GildedRose {
         for (int i = 0; i < items.size(); i++) {
 
             initParams(i);
+            ItemStrategy itemStrategy;
 
             switch(name){
                 case AGED_BRIE:
-                    if (quality < 50) {
-                        quality ++;
-                    }
-                    sellIn --;
-                    if (sellIn < 0) {
-                        modifyQualityByItemName();
-                    }
+//                    if (quality < 50) {
+//                        quality ++;
+//                    }
+//                    sellIn --;
+//                    if (sellIn < 0) {
+//                        modifyQualityByItemName();
+//                    }
+                    itemStrategy = new AgedBrie();
+                    itemStrategy.update(items.get(i));
+                    deassignParams(items.get(i));
                     break;
                 case BPTATC:
                     if (quality < 50) {
@@ -82,6 +86,12 @@ public class GildedRose {
 //                modifyQualityByItemName();
 //            }
         }
+    }
+
+    private void deassignParams(Item item) {
+        quality = item.quality;
+        sellIn = item.sellIn;
+        name = item.name;
     }
 
     private void modifyQualityByItemName() {
