@@ -3,10 +3,13 @@ package gildedRose;
 import java.util.List;
 
 public class GildedRose {
-    List<Item> items;
-    String name;
-    int quality;
-    int sellIn;
+
+    private final static String AGED_BRIE = "Aged Brie";
+
+    protected List<Item> items;
+    protected String name;
+    protected int quality;
+    protected int sellIn;
 
     public GildedRose(List<Item> items) {
         this.items = items;
@@ -15,7 +18,9 @@ public class GildedRose {
 
     public void updateQuality() {
         for (int i = 0; i < items.size(); i++) {
+
             initParams(i);
+
             if (!name.equals("Aged Brie")
                     && !name.equals("Backstage passes to a TAFKAL80ETC concert")) {
                 if (quality > 0) {
@@ -26,13 +31,7 @@ public class GildedRose {
                     quality ++;
 
                     if (name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-                        if (sellIn < 11) {
-                            addQualityWhenQualityLessThan50();
-                        }
-
-                        if (sellIn < 6) {
-                            addQualityWhenQualityLessThan50();
-                        }
+                        addQualityBySellIn();
                     }
                 }
             }
@@ -54,6 +53,16 @@ public class GildedRose {
                     addQualityWhenQualityLessThan50();
                 }
             }
+        }
+    }
+
+    private void addQualityBySellIn() {
+        if (sellIn < 11) {
+            addQualityWhenQualityLessThan50();
+        }
+
+        if (sellIn < 6) {
+            addQualityWhenQualityLessThan50();
         }
     }
 

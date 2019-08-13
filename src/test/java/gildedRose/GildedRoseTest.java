@@ -9,10 +9,10 @@ import java.util.List;
 public class GildedRoseTest {
 
 
-    private static String AGED_BRIE = "Aged Brie";
-    private static String ITEM_A = "Item A";
-    private static String BPTATC = "Backstage passes to a TAFKAL80ETC concert";
-    private static String SHOR = "Sulfuras, Hand of Ragnaros";
+    private final static String AGED_BRIE = "Aged Brie";
+    private final static String ITEM_A = "Item A";
+    private final static String BPTATC = "Backstage passes to a TAFKAL80ETC concert";
+    private final static String SHOR = "Sulfuras, Hand of Ragnaros";
 
 
     @Test
