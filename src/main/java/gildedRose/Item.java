@@ -48,10 +48,4 @@ public class Item {
         itemStrategy.update(item);
     }
 
-    private void deassignParams(Item item) {
-        quality = item.quality;
-        sellIn = item.sellIn;
-        name = item.name;
-    }
-
 }
