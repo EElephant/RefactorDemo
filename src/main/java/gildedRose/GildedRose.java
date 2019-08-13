@@ -27,100 +27,36 @@ public class GildedRose {
             switch(name){
                 case AGED_BRIE:
                     itemStrategy = new AgedBrie();
-                    itemStrategy.update(items.get(i));
-                    deassignParams(items.get(i));
+                    update(i, itemStrategy);
                     break;
 
                 case BPTATC:
                     itemStrategy = new Backstage();
-                    itemStrategy.update(items.get(i));
-                    deassignParams(items.get(i));
+                    update(i, itemStrategy);
                     break;
 
                 case SHOR:
-//                    if (sellIn < 0) {
-//                        modifyQualityByItemName();
-//                    }
                     itemStrategy = new Sulfuras();
-                    itemStrategy.update(items.get(i));
-                    deassignParams(items.get(i));
+                    update(i, itemStrategy);
                     break;
 
                 default:
-                    if (quality > 0) {
-                        reduceQualityWhenNameNotEqualsSulfuras();
-                    }
-                    sellIn --;
-                    if (sellIn < 0) {
-                        modifyQualityByItemName();
-                    }
+                    itemStrategy = new NormalItem();
+                    update(i, itemStrategy);
                     break;
             }
-
-//            if (!name.equals("Aged Brie")
-//                    && !name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-//                if (quality > 0) {
-//                    reduceQualityWhenNameNotEqualsSulfuras();
-//                }
-//            } else {
-//                if (quality < 50) {
-//                    quality ++;
-//
-//                    if (name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-//                        addQualityBySellIn();
-//                    }
-//                }
-//            }
-//
-//            if (!name.equals("Sulfuras, Hand of Ragnaros")) {
-//                sellIn --;
-//            }
-//
-//            if (sellIn < 0) {
-//                modifyQualityByItemName();
-//            }
         }
+    }
+
+    private void update(int i, ItemStrategy itemStrategy) {
+        itemStrategy.update(items.get(i));
+        deassignParams(items.get(i));
     }
 
     private void deassignParams(Item item) {
         quality = item.quality;
         sellIn = item.sellIn;
         name = item.name;
-    }
-
-    private void modifyQualityByItemName() {
-        if (!name.equals("Aged Brie")) {
-            if (!name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-                if (quality > 0) {
-                    reduceQualityWhenNameNotEqualsSulfuras();
-                }
-            } else {
-                quality = 0;
-            }
-        } else {
-            addQualityWhenQualityLessThan50();
-        }
-    }
-
-    private void addQualityBySellIn() {
-        if (sellIn < 11) {
-            addQualityWhenQualityLessThan50();
-        }
-
-        if (sellIn < 6) {
-            addQualityWhenQualityLessThan50();
-        }
-    }
-
-    private void reduceQualityWhenNameNotEqualsSulfuras() {
-        if (!name.equals("Sulfuras, Hand of Ragnaros")) {
-            quality--;
-        }
-    }
-
-    private void addQualityWhenQualityLessThan50() {
-        if (quality < 50)
-            quality++;
     }
 
     private void initParams(int i) {
