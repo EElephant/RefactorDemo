@@ -38,11 +38,14 @@ public class GildedRose {
                     break;
 
                 case SHOR:
-                    if (sellIn < 0) {
-                        modifyQualityByItemName();
-                    }
+//                    if (sellIn < 0) {
+//                        modifyQualityByItemName();
+//                    }
+                    itemStrategy = new Sulfuras();
+                    itemStrategy.update(items.get(i));
+                    deassignParams(items.get(i));
                     break;
-                    
+
                 default:
                     if (quality > 0) {
                         reduceQualityWhenNameNotEqualsSulfuras();
